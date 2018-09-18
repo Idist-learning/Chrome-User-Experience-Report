@@ -23,57 +23,71 @@ Chrome User Experience Report được hỗ trợ đo đạc các chỉ số v�
 ### Các chỉ số
 
 Metrics provided by the public Chrome User Experience Report hosted on Google BigQuery are powered by standard web platform APIs exposed by modern browsers and aggregated to origin-resolution. Site owners that want more detailed (URL level resolution) analysis and insight into their site performance and can use the same APIs to gather detailed real user measurement (RUM) data for their own origins.
-Các chỉ số được cung cấp bởi Chrome User Experience Report một cách công khai, lưu trữ trên Google BigQuery được cung cấp dựa trên các nền tảng web thông qua API được hiển thị trên các trình duyệt hiện đại, và tổng hợp theo các phân bố ban đầu. Chủ sở hữu trang wbe muốn phân tích chi tiết hơn (phân tích theo URL) và hiểu rõ hơn về hiệu suất trang web của họ và có thể sử dụng cùng 1 API để thu thập dữ liệu phục vụ việc đo lường chi tiết trong thực tế (RUM) về dữ liệu 
+Các chỉ số được cung cấp bởi Chrome User Experience Report một cách công khai, lưu trữ trên Google BigQuery được cung cấp dựa trên các nền tảng web thông qua API được hiển thị trên các trình duyệt hiện đại, và tổng hợp theo các phân bố ban đầu. Chủ sở hữu trang wbe muốn phân tích chi tiết hơn (phân tích theo URL) và hiểu rõ hơn về hiệu suất trang web của họ và có thể sử dụng cùng 1 API để thu thập dữ liệu phục vụ việc đo lường chi tiết trong thực tế (RUM) về dữ liệu gốc của họ.
 
 **Note:** Currently the Chrome User Experience Report is focused on loading performance. With time, we hope to add more metrics and dimensions, both to provide more insight into loading and other [critical factors that most affect user experience][5].
+** Lưu ý: ** Hiện tại, Chrome User Experience Report tập trung vào hiệu suất tải trang. Theo thời gian, chúng tôi hy vọng sẽ thêm nhiều chỉ số và các thành phần mở rộng hơn, cả hai đều cung cấp thông tin chi tiết hơn về tải trang và [các yếu tố quan trọng khác ảnh hưởng nhiều nhất đến trải nghiệm người dùng] [5].
 
 For guidance on which metrics to track and optimize for, and best practices on how to interpret real user measurement data, refer to our [user centric performance][5] documentation.
+Để được hướng dẫn về số liệu nào cần theo dõi, tối ưu hóa và các phương pháp hay nhất về cách diễn giải dữ liệu được đo lường từ phía người dùng thực, hãy tham khảo tài liệu [tâm điểm hiệu suất người dùng] [5] của chúng tôi.
 
 #### First Paint
+#### Khung màn hình đầu tiên
 
 Defined by the [Paint Timing API][6] and [available in Chrome M60+][7]:
-
+Được xác định bởi [Paint Timing API][6] và [khả dụng trên Chrome M60+][7]:
 > "First Paint reports the time when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page."
+> "First Paint báo cáo thời gian khi trình duyệt xuất hiện lần đầu tiên sau khi điều hướng. Điều này không bao gồm khung nền màn hình mặc định, nhưng bao gồm khung màn hình không mặc định. Đây là thời điểm quan trọng đầu tiên mà nhà phát triển quan tâm khi tải trang - khi trình duyệt bắt đầu hiển thị trang."
 
 #### First Contentful Paint
+#### Màn hình có nội dung đầu tiên
 
 Defined by the [Paint Timing API][8] and [available in Chrome M60+][7]:
+Được xác định bởi [Paint Timing API][8] và [khả dụng trên Chrome M60+][7]:
 
 > "First Contentful Paint reports the time when the browser first rendered any text, image (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content."
+> "First Contentful Paint báo cáo thời gian khi trình duyệt hiển thị bất kỳ văn bản, hình ảnh nào (bao gồm hình nền), canvas không phải màu trắng hoặc SVG. Điều này bao gồm văn bản có webfonts đang chờ xử lý. Đây là lần đầu tiên người dùng có thể bắt đầu sử dụng nội dung trang".
 
 #### DOMContentLoaded
+#### DOMContentLoaded
 
-Defined by the [HTML specification][9]:
+Được định nghĩa bởi [HTML specification][9]:
 
 > "The DOMContentLoaded reports the time when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading." - [MDN][10].
+> "DOMContentLoaded báo cáo thời gian khi tài liệu HTML ban đầu đã được tải và phân tích cú pháp hoàn thiện, mà không cần đợi bảng định kiểu, hình ảnh và các frame phụ để kết thúc việc tải trang". - [MDN] [10].
 
 #### onload
+#### đang tải trang
 
-Defined by the [HTML specification][11]:
+Được định nghĩa bởi [HTML specification][11]:
 
 > "The load event is fired when the page and its dependent resources have finished loading." - [MDN][12].
+> "Sự kiện tải được kích hoạt khi trang và các tài nguyên phụ thuộc của nó tải xong." - [MDN] [12].
 
 ### Dimensions
+### Các biểu mẫu
 
 Performance of web content can vary significantly based on device type, properties of the network, and other variables. To help segment and understand user experience across such key segments, the Chrome User Experience Report provides the following dimensions.
+Hiệu suất của nội dung web có thể thay đổi đáng kể dựa trên loại thiết bị, thuộc tính của mạng và các biến khác. Để giúp phân đoạn và hiểu trải nghiệm người dùng trên các phân đoạn chính như vậy, Chrome User Experience Report cung cấp các biểu mẫu sau.
 
 #### Effective Connection Type
+#### Loại kết nối hiệu quả
 
-Defined by the [Network Information API][13] and [available in Chrome M62+][14]:
+Được xác định bởi [API thông tin mạng] [13] và [có sẵn trong Chrome M62 +] [14]:
 
-> "Provides the effective connection type ("slow-2g", "2g", "3g", "4g", or "offline") as determined by round-trip and bandwidth values based on real user measurement observations."
+> "Cung cấp loại kết nối hiệu quả (" chậm-2g "," 2g "," 3g "," 4g "hoặc" ngoại tuyến ") được xác định theo giá trị vòng lặp và băng thông dựa trên các quan sát đo lường thực tế của người dùng."
 
-#### Device Type
+#### Loại thiết bị
 
-Coarse device classification ("phone", "tablet", or "desktop"), as [communicated via User-Agent][15].
+Phân loại thiết bị thô ("điện thoại", "máy tính bảng" hoặc "máy tính để bàn"), như [được liên lạc qua Tác nhân người dùng] [15].
 
-#### Country
+#### Quốc gia
 
-Geographic location of users at the country-level, inferred by their IP address. Countries are identified by their respective [ISO 3166-1 alpha-2 codes][16].
+Vị trí địa lý của người dùng ở cấp quốc gia, được suy ra theo địa chỉ IP của họ. Các quốc gia được xác định theo [mã số ISO 3166-1 alpha-2 tương ứng] [16].
 
-### Data format
+### Định dạng dữ liệu
 
-The report is provided via [Google BigQuery][17] as a collection of datasets containing user experience metrics aggregated to origin-resolution. Each dataset represents a single country, `country_rs` captures user experience data for users in Serbia (`rs` is the [ISO 31611-1][16] code for Serbia). Additionally, there is a globally aggregated dataset (`all`) that captures the world-wide experience. Each row in the dataset contains a nested record of user experience for a particular origin, split by key dimensions.
+Báo cáo được cung cấp qua [Google BigQuery] [17] dưới dạng tập hợp các tập dữ liệu chứa các chỉ số trải nghiệm người dùng được tổng hợp thành độ phân giải gốc. Mỗi tập dữ liệu đại diện cho một quốc gia duy nhất, `country_rs` nắm bắt dữ liệu trải nghiệm người dùng cho người dùng ở Serbia (` rs` là mã [ISO 31611-1] [16] cho Serbia). Ngoài ra, có một tập dữ liệu tổng hợp toàn cầu (`tất cả`) thu thập trải nghiệm trên toàn thế giới. Mỗi hàng trong tập dữ liệu chứa bản ghi trải nghiệm người dùng lồng nhau cho một nguồn gốc cụ thể, được chia cho các thứ nguyên chính.
 
 | ----- |
 | Dimension |  
@@ -84,45 +98,45 @@ The report is provided via [Google BigQuery][17] as a collection of datasets con
 | `first_paint.histogram.end` |  1200 |  
 | `first_paint.histogram.density` |  0.123 | 
 
-For example, the above shows a sample record from the Chrome User Experience Report, which indicates that 12.3% of page loads had a "first paint time" measurement in the range of 1000-1200 milliseconds when loading "http://example.com" on a "phone" device over a "4G"-like connection. To obtain a cumulative value of users experiencing a first paint time below 1200 milliseconds, you can add up all records whose histogram's "end" value is less than or equal to 1200. 
+Ví dụ: ở trên cho thấy một bản ghi mẫu từ Báo cáo trải nghiệm người dùng Chrome, cho biết rằng 12,3% tải trang có đo lường "lần sơn đầu tiên" trong khoảng 1000-1200 mili giây khi tải "http://example.com "trên thiết bị" điện thoại "qua kết nối giống như" 4G ". Để có được giá trị tích lũy của người dùng trải qua thời gian sơn đầu tiên dưới 1200 mili giây, bạn có thể thêm tất cả các bản ghi có giá trị "kết thúc" của biểu đồ nhỏ hơn hoặc bằng 1200.
 
-**Note:** The Chrome User Experience Report does not provide quantile values (e.g. median). Such values can be approximated from the provided data, but are not exposed directly by the report.
+** Lưu ý: ** Báo cáo trải nghiệm người dùng Chrome không cung cấp giá trị định lượng (ví dụ: trung vị). Các giá trị như vậy có thể xấp xỉ từ dữ liệu được cung cấp, nhưng không được báo cáo tiếp xúc trực tiếp.
 
-## Getting started
+## Bắt đầu
 
-The Chrome User Experience Report is provided as a public project on [Google BigQuery][17]. To access the project, you'll need a Google account and a Google Cloud Project: [refer to our step by step guide][18] and [the guided tour of how to query the project][19].
+Báo cáo trải nghiệm người dùng Chrome được cung cấp dưới dạng dự án công khai trên [Google BigQuery] [17]. Để truy cập dự án, bạn cần có tài khoản Google và Dự án Google Cloud: [tham khảo hướng dẫn từng bước của chúng tôi] [18] và [hướng dẫn về cách truy vấn dự án] [19].
 
-## Analysis tips & best practices
+## Mẹo phân tích và phương pháp hay nhất
 
-### Consider population differences across origins
+### Xem xét sự khác biệt về dân số giữa các quốc gia sản xuất
 
-The metrics provided by the Chrome User Experience Report are powered by real user measurement data. As a result, the data reflects how real users experienced the visited origin and, unlike synthetic or local testing where the test is performed under fixed and simulated conditions, captures the full range of external factors that shape and contribute to the final user experience.
+Các số liệu được cung cấp bởi Báo cáo trải nghiệm người dùng Chrome được cung cấp bởi dữ liệu đo lường người dùng thực. Kết quả là, dữ liệu phản ánh cách người dùng thực sự trải nghiệm nguồn gốc truy cập và không giống như thử nghiệm tổng hợp hoặc địa phương nơi thử nghiệm được thực hiện trong điều kiện cố định và mô phỏng, nắm bắt đầy đủ các yếu tố bên ngoài hình thành và đóng góp cho trải nghiệm người dùng cuối cùng.
 
-For example, differences in population of users accessing a particular origin can contribute meaningful differences to the user experience. If the site is frequented by more visitors with more modern devices or via a faster network, the results may appear "fast" even if the site is not well optimized. Conversely, a well optimized site that attracts a wider population of users, or a population with larger fraction of users on slower devices or networks, may appear "slow".
+Ví dụ: sự khác biệt về dân số người dùng truy cập nguồn gốc cụ thể có thể đóng góp những khác biệt có ý nghĩa cho trải nghiệm người dùng. Nếu trang web thường xuyên được nhiều khách truy cập hơn với các thiết bị hiện đại hơn hoặc thông qua mạng nhanh hơn, kết quả có thể xuất hiện "nhanh" ngay cả khi trang web không được tối ưu hóa tốt. Ngược lại, một trang web được tối ưu hóa tốt thu hút một lượng người dùng rộng hơn hoặc dân số có số lượng người dùng lớn hơn trên các thiết bị hoặc mạng chậm hơn, có thể xuất hiện "chậm".
 
-When performing head-to-head comparisons across origins, it is important to account and control for the population differences: segment by provided dimensions, such as device type and connection type, and consider external factors such as size of the population, countries from which the origin is accessed, and so on.
+Khi thực hiện so sánh trực tiếp giữa các nguồn gốc, điều quan trọng là phải tính toán và kiểm soát sự khác biệt về dân số: phân đoạn theo thứ nguyên được cung cấp, chẳng hạn như loại thiết bị và loại kết nối và xem xét các yếu tố bên ngoài như quy mô dân số, quốc gia mà từ đó nguồn gốc được truy cập, v.v.
 
-### Consider population size differences across origins
+### Xem xét sự khác biệt về kích thước dân số trên nguồn gốc
 
-The Chrome User Experience Report aggregates data for each origin, with the "density" values across all dimension-metric histograms summing to a value of "1.0". This provides insight into the distribution of experiences across the key dimensions for a single origin.
+Báo cáo trải nghiệm người dùng Chrome tổng hợp dữ liệu cho mỗi nguồn gốc, với các giá trị "mật độ" trên tất cả các biểu đồ thứ nguyên-số liệu tổng hợp với giá trị là "1.0". Điều này cung cấp thông tin chi tiết về phân phối trải nghiệm trên các thứ nguyên chính cho một nguồn gốc duy nhất.
 
-However, when aggregating data from multiple origins, for example within an industry vertical or geographic regions, be careful with the types of conclusions being drawn: adding up densities for the same metric across multiple origins does not account for relative population differences across origins. 
+Tuy nhiên, khi tổng hợp dữ liệu từ nhiều nguồn gốc, ví dụ trong ngành dọc hoặc khu vực địa lý, hãy cẩn thận với các loại kết luận được rút ra: việc tăng mật độ cho cùng một số liệu trên nhiều nguồn gốc không tính đến sự khác biệt về dân số tương đối trên nguồn gốc.
 
-For example, site A may have ten million visitors, while site B has ten thousand. In both cases, the histogram densities for each origin sum to "1.0", and the dataset does not provide any absolute metrics about the population size of individual origins, or relative population size differences across origins. As a result, if you add together the densities from A and B, and average the results, you will treat them as equals even though A has three orders of magnitude more traffic.
+Ví dụ: trang web A có thể có mười triệu khách truy cập, trong khi trang web B có mười nghìn. Trong cả hai trường hợp, mật độ biểu đồ cho mỗi tổng nguồn gốc là "1.0" và tập dữ liệu không cung cấp bất kỳ số liệu tuyệt đối nào về quy mô dân số của nguồn gốc riêng lẻ hoặc sự khác biệt về kích thước dân số tương đối trên nguồn gốc. Kết quả là, nếu bạn cộng các mật độ từ A và B, và trung bình kết quả, bạn sẽ coi chúng là bằng nhau mặc dù A có ba đơn vị lưu lượng truy cập lớn hơn.
 
-### Consider Chrome population differences
+### Cân nhắc sự khác biệt về dân số của Chrome
 
-The Chrome User Experience report is powered by real user measurement aggregated from Chrome users who have opted-in to syncing their browsing history, have not set up a Sync passphrase, and have usage statistic reporting enabled. This population may not be representative of the broader user base for a particular origin and many origins may have population differences among each other. Further, this data does not account for users with different browsers and differences in browser adoption in different geographic regions.
+Báo cáo trải nghiệm người dùng Chrome được hỗ trợ bởi đo lường người dùng thực được tổng hợp từ những người dùng Chrome đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, chưa thiết lập cụm mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Dân số này có thể không đại diện cho cơ sở người dùng rộng hơn cho một nguồn gốc cụ thể và nhiều nguồn gốc có thể có sự khác biệt về dân số giữa nhau. Hơn nữa, dữ liệu này không tính đến người dùng có trình duyệt khác nhau và sự khác biệt trong việc chấp nhận trình duyệt ở các khu vực địa lý khác nhau.
 
-As a result, be careful with the types of conclusions being drawn when looking at a cross-section of origins, and when comparing individual origins: avoid using absolute comparisons and consider other population factors outlined in the sections above.
+Do đó, hãy cẩn thận với các loại kết luận được rút ra khi nhìn vào mặt cắt ngang của nguồn gốc và khi so sánh nguồn gốc cá nhân: tránh sử dụng so sánh tuyệt đối và xem xét các yếu tố dân số khác được nêu trong các phần ở trên.
 
-## Feedback and suggestions
+## Phản hồi và đề xuất
 
-We would love to hear your feedback, questions, and suggestions to help us improve the Chrome User Experience Report. Please join the conversation on our [public Google Group][20].
+Chúng tôi muốn nghe phản hồi, câu hỏi và đề xuất của bạn để giúp chúng tôi cải thiện Báo cáo trải nghiệm người dùng Chrome. Vui lòng tham gia cuộc trò chuyện trên [Nhóm Google công khai] của chúng tôi] [20].
 
-## License
+## Giấy phép
 
-"Chrome User Experience Report" datasets by Google are licensed under a [Creative Commons Attribution 4.0 International License][21].
+Bộ dữ liệu "Báo cáo trải nghiệm người dùng Chrome" của Google được cấp phép theo [Giấy phép quốc tế Creative Commons Attribution 4.0] [21].
 
 [1]: https://developers.google.com/web/tools/chrome-user-experience-report/images/dataset.png
 [2]: https://www.google.com/chrome/browser/privacy/whitepaper.html#usagestats
