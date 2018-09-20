@@ -5,47 +5,35 @@
 # Báo cáo về trải nghiệm người dùng | Các công cụ cho các web developer | Google Developer
 ![][1]
 
-The Chrome User Experience Report provides user experience metrics for how real-world Chrome users experience popular destinations on the web.
 Chrome User Experience Report cung cấp các số liệu từ trải nghiệm người dùng đến cách mà người dùng Chrome trải nghiệm trong thế giới thực với các địa điểm cụ thể.
 
 ## Methodology
 ## Các phương pháp luận
 
-The Chrome User Experience Report is powered by real user measurement of key user experience metrics across the public web, aggregated from users who have opted-in to syncing their browsing history, have not set up a Sync passphrase, and have [usage statistic reporting][2] enabled. The resulting data is made available via:
 Chrome User Experience Report được hỗ trợ đo đạc các chỉ số về trải nghiệm người dùng trên chính các web công cộng, được tổng hợp từ những người dùng được chọn tham gia đồng bộ hoá lịch sử trình duyệt của họ, không thiết lập mật khẩu cho đồng bộ hoá, và bật tính năng [báo cáo thống kê sử dụng][2]. Dữ liệu về kết quả được thông qua:
 
-1. [PageSpeed Insights][3], which provides URL-level user experience metrics for popular URLs that are known by Google's web crawlers.
 1. [PageSpeed Insights][3] cung cấp các chỉ số về trải nghiệm người dùng của mỗi mức URL đối với các URL phổ phiến mà công cụ crawler các web của Google biết.
-2. [Public Google BigQuery project][4], which aggregates user experience metrics by origin, for all origins that are known by Google's web crawlers, and split across multiple dimensions outlined below.
 2. [Dự án cộng đồng Google BigQuery][4] tổng hợp các chỉ số về trải nghiệm của người dùng theo nguồn gốc, áp dụng với mọi nguồn gốc mà trình thu thập dữ liệu của Google biết được và chia nhỏ dữ liệu theo những mục được nêu dưới đây:
 
 ### Metrics
 ### Các chỉ số
 
-Metrics provided by the public Chrome User Experience Report hosted on Google BigQuery are powered by standard web platform APIs exposed by modern browsers and aggregated to origin-resolution. Site owners that want more detailed (URL level resolution) analysis and insight into their site performance and can use the same APIs to gather detailed real user measurement (RUM) data for their own origins.
 Các chỉ số được cung cấp bởi Chrome User Experience Report một cách công khai, lưu trữ trên Google BigQuery được cung cấp dựa trên các nền tảng web thông qua API được hiển thị trên các trình duyệt hiện đại, và tổng hợp theo các phân bố ban đầu. Chủ sở hữu trang wbe muốn phân tích chi tiết hơn (phân tích theo URL) và hiểu rõ hơn về hiệu suất trang web của họ và có thể sử dụng cùng 1 API để thu thập dữ liệu phục vụ việc đo lường chi tiết trong thực tế (RUM) về dữ liệu gốc của họ.
 
-**Note:** Currently the Chrome User Experience Report is focused on loading performance. With time, we hope to add more metrics and dimensions, both to provide more insight into loading and other [critical factors that most affect user experience][5].
-** Lưu ý: ** Hiện tại, Chrome User Experience Report tập trung vào hiệu suất tải trang. Theo thời gian, chúng tôi hy vọng sẽ thêm nhiều chỉ số và các thành phần mở rộng hơn, cả hai đều cung cấp thông tin chi tiết hơn về tải trang và [các yếu tố quan trọng khác ảnh hưởng nhiều nhất đến trải nghiệm người dùng] [5].
+**Lưu ý:** Hiện tại, Chrome User Experience Report tập trung vào hiệu suất tải trang. Theo thời gian, chúng tôi hy vọng sẽ thêm nhiều chỉ số và các thành phần mở rộng hơn, cả hai đều cung cấp thông tin chi tiết hơn về tải trang và [các yếu tố quan trọng khác ảnh hưởng nhiều nhất đến trải nghiệm người dùng] [5].
 
-For guidance on which metrics to track and optimize for, and best practices on how to interpret real user measurement data, refer to our [user centric performance][5] documentation.
 Để được hướng dẫn về số liệu nào cần theo dõi, tối ưu hóa và các phương pháp hay nhất về cách diễn giải dữ liệu được đo lường từ phía người dùng thực, hãy tham khảo tài liệu [tâm điểm hiệu suất người dùng] [5] của chúng tôi.
 
 #### First Paint
 #### Khung màn hình đầu tiên
-
-Defined by the [Paint Timing API][6] and [available in Chrome M60+][7]:
 Được xác định bởi [Paint Timing API][6] và [khả dụng trên Chrome M60+][7]:
-> "First Paint reports the time when the browser first rendered after navigation. This excludes the default background paint, but includes non-default background paint. This is the first key moment developers care about in page load – when the browser has started to render the page."
+
 > "First Paint báo cáo thời gian khi trình duyệt xuất hiện lần đầu tiên sau khi điều hướng. Điều này không bao gồm khung nền màn hình mặc định, nhưng bao gồm khung màn hình không mặc định. Đây là thời điểm quan trọng đầu tiên mà nhà phát triển quan tâm khi tải trang - khi trình duyệt bắt đầu hiển thị trang."
 
 #### First Contentful Paint
 #### Màn hình có nội dung đầu tiên
-
-Defined by the [Paint Timing API][8] and [available in Chrome M60+][7]:
 Được xác định bởi [Paint Timing API][8] và [khả dụng trên Chrome M60+][7]:
 
-> "First Contentful Paint reports the time when the browser first rendered any text, image (including background images), non-white canvas or SVG. This includes text with pending webfonts. This is the first time users could start consuming page content."
 > "First Contentful Paint báo cáo thời gian khi trình duyệt hiển thị bất kỳ văn bản, hình ảnh nào (bao gồm hình nền), canvas không phải màu trắng hoặc SVG. Điều này bao gồm văn bản có webfonts đang chờ xử lý. Đây là lần đầu tiên người dùng có thể bắt đầu sử dụng nội dung trang".
 
 #### DOMContentLoaded
@@ -53,7 +41,6 @@ Defined by the [Paint Timing API][8] and [available in Chrome M60+][7]:
 
 Được định nghĩa bởi [HTML specification][9]:
 
-> "The DOMContentLoaded reports the time when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading." - [MDN][10].
 > "DOMContentLoaded báo cáo thời gian khi tài liệu HTML ban đầu đã được tải và phân tích cú pháp hoàn thiện, mà không cần đợi bảng định kiểu, hình ảnh và các frame phụ để kết thúc việc tải trang". - [MDN] [10].
 
 #### onload
@@ -61,13 +48,11 @@ Defined by the [Paint Timing API][8] and [available in Chrome M60+][7]:
 
 Được định nghĩa bởi [HTML specification][11]:
 
-> "The load event is fired when the page and its dependent resources have finished loading." - [MDN][12].
 > "Sự kiện tải được kích hoạt khi trang và các tài nguyên phụ thuộc của nó tải xong." - [MDN] [12].
 
 ### Dimensions
 ### Các biểu mẫu
 
-Performance of web content can vary significantly based on device type, properties of the network, and other variables. To help segment and understand user experience across such key segments, the Chrome User Experience Report provides the following dimensions.
 Hiệu suất của nội dung web có thể thay đổi đáng kể dựa trên loại thiết bị, thuộc tính của mạng và các biến khác. Để giúp phân đoạn và hiểu trải nghiệm người dùng trên các phân đoạn chính như vậy, Chrome User Experience Report cung cấp các biểu mẫu sau.
 
 #### Effective Connection Type
@@ -100,7 +85,7 @@ Báo cáo được cung cấp qua [Google BigQuery] [17] dưới dạng tập h�
 
 Ví dụ: ở trên cho thấy một bản ghi mẫu từ Báo cáo trải nghiệm người dùng Chrome, cho biết rằng 12,3% tải trang có đo lường "lần sơn đầu tiên" trong khoảng 1000-1200 mili giây khi tải "http://example.com "trên thiết bị" điện thoại "qua kết nối giống như" 4G ". Để có được giá trị tích lũy của người dùng trải qua thời gian sơn đầu tiên dưới 1200 mili giây, bạn có thể thêm tất cả các bản ghi có giá trị "kết thúc" của biểu đồ nhỏ hơn hoặc bằng 1200.
 
-** Lưu ý: ** Báo cáo trải nghiệm người dùng Chrome không cung cấp giá trị định lượng (ví dụ: trung vị). Các giá trị như vậy có thể xấp xỉ từ dữ liệu được cung cấp, nhưng không được báo cáo tiếp xúc trực tiếp.
+**Lưu ý:** Báo cáo trải nghiệm người dùng Chrome không cung cấp giá trị định lượng (ví dụ: trung vị). Các giá trị như vậy có thể xấp xỉ từ dữ liệu được cung cấp, nhưng không được báo cáo tiếp xúc trực tiếp.
 
 ## Bắt đầu
 
